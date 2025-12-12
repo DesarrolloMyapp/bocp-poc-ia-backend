@@ -1,0 +1,10 @@
+extractorConnection:
+  handler: extractor/extractorFunction/js/extractorConnection.extractorConnection
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-extractor/
+        method: GET
+        integration: lambda
+        cors: true
