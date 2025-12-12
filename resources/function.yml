@@ -38,6 +38,7 @@ userGenerateToken: ${file(user/userFunction/yml/userGenerateToken.yml):userGener
 userACLGetListGLN: ${file(user/userFunction/yml/userACLGetListGLN.yml):userACLGetListGLN}
 userACLGetMyPermission: ${file(user/userFunction/yml/userACLGetMyPermission.yml):userACLGetMyPermission}
 userACLInsert: ${file(user/userFunction/yml/userACLInsert.yml):userACLInsert}
+extractorConnection: ${file(extractor/extractorFunction/yml/extractorConnection.yml):extractorConnection}
 # # order
 # orderInsert: ${file(order/orderFunction/yml/orderInsert.yml):orderInsert}
 # orderGetAllByCompany: ${file(order/orderFunction/yml/orderGetAllByCompany.yml):orderGetAllByCompany}
