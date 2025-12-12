@@ -1,0 +1,12 @@
+userSendNotification:
+  handler: user/userFunction/js/userSendNotification.userSendNotification
+  role: executeLambda
+  environment:
+    stage: ${self:provider.stage}
+    region: ${self:provider.region}
+  events:
+    - http:
+        path: ${self:app}-user/userSendNotification
+        method: POST
+        integration: lambda
+        cors: true 

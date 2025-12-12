@@ -1,0 +1,635 @@
+{
+  "type": "object",
+  "properties": {
+    "Order": {
+      "type": "object",
+      "properties": {
+        "Revisionnumber": {
+          "type": "string"
+        },
+        "Businessdocumentcreationdatetime": {
+          "type": "string"
+        },
+        "Referencedrelatedorderinformation": {
+          "type": "object",
+          "properties": {
+            "Businessdocumentcreationdatetime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Businessdocumentcreationdatetime"
+          ]
+        },
+        "Businessdocumentstatuscode": {
+          "type": "string"
+        },
+        "Businessdocumentstandardversion": {
+          "type": "string"
+        },
+        "Orderreceiptacknowledgementrequestindicator": {
+          "type": "string"
+        },
+        "Businessdocumentidentificationinformation": {
+          "type": "object",
+          "properties": {
+            "Entityidentification": {
+              "type": "string"
+            },
+            "Documentcontentowner": {
+              "type": "object",
+              "properties": {
+                "GloballocationnumberGLN": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "GloballocationnumberGLN"
+              ]
+            }
+          },
+          "required": [
+            "Entityidentification",
+            "Documentcontentowner"
+          ]
+        },
+        "Orderinstructiondescription": {
+          "type": "object",
+          "properties": {
+            "Orderinstructiondescriptioncontent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Orderinstructiondescriptioncontent"
+          ]
+        },
+        "Deliveryinstructionsdescription": {
+          "type": "object",
+          "properties": {
+            "Deliveryinstructionsdescriptioncontent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Deliveryinstructionsdescriptioncontent"
+          ]
+        },
+        "Ordertypecode": {
+          "type": "object",
+          "properties": {
+            "Ordertypecodecontent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Ordertypecodecontent"
+          ]
+        },
+        "Buyerpartyinformation": {
+          "type": "object",
+          "properties": {
+            "gln": {
+              "type": "string"
+            },
+            "Businesscontactinformation": {
+              "type": "object",
+              "properties": {
+                "Personname": {
+                  "type": "string"
+                },
+                "Communicationinformation": {
+                  "type": "object",
+                  "properties": {
+                    "Communicationchannelcode": {
+                      "type": "string"
+                    },
+                    "Communicationchannelidentification": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Communicationchannelcode",
+                    "Communicationchannelidentification"
+                  ]
+                }
+              },
+              "required": [
+                "Personname",
+                "Communicationinformation"
+              ]
+            },
+            "Organisationlegalinformation": {
+              "type": "object",
+              "properties": {
+                "Organisationname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Organisationname"
+              ]
+            }
+          },
+          "required": [
+            "gln",
+            "Businesscontactinformation",
+            "Organisationlegalinformation"
+          ]
+        },
+        "Sellerpartyinformation": {
+          "type": "object",
+          "properties": {
+            "GloballocationnumberGLN": {
+              "type": "string"
+            },
+            "Additionalpartyidentificationinformation": {
+              "type": "object",
+              "properties": {
+                "Additionalpartyidentificationcontent": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Additionalpartyidentificationcontent"
+              ]
+            },
+            "Organisationlegalinformation": {
+              "type": "object",
+              "properties": {
+                "Organisationname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Organisationname"
+              ]
+            },
+            "Addressinformation": {
+              "type": "object",
+              "properties": {
+                "Partyname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Partyname"
+              ]
+            },
+            "Communicationinformation": {
+              "type": "object",
+              "properties": {
+                "Communicationchannelidentification": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Communicationchannelidentification"
+              ]
+            }
+          },
+          "required": [
+            "GloballocationnumberGLN",
+            "Additionalpartyidentificationinformation",
+            "Organisationlegalinformation",
+            "Addressinformation",
+            "Communicationinformation"
+          ]
+        },
+        "Billtopartyinformation": {
+          "type": "object",
+          "properties": {
+            "GloballocationnumberGLN": {
+              "type": "string"
+            },
+            "Organisationlegalinformation": {
+              "type": "object",
+              "properties": {
+                "Organisationname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Organisationname"
+              ]
+            }
+          },
+          "required": [
+            "GloballocationnumberGLN",
+            "Organisationlegalinformation"
+          ]
+        },
+        "Requestedtradeiteminformation": {
+          "type": "object",
+          "properties": {
+            "Tradeitemclassificationinformation": {
+              "type": "object",
+              "properties": {
+                "Alternativetradeitemproductclassificationcodecontent": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Alternativetradeitemproductclassificationcodecontent"
+              ]
+            }
+          },
+          "required": [
+            "Tradeitemclassificationinformation"
+          ]
+        },
+        "Orderedtradeitemlogisticalinformation": {
+          "type": "object",
+          "properties": {
+            "Shiptopartyinformation": {
+              "type": "object",
+              "properties": {
+                "GloballocationnumberGLN": {
+                  "type": "string"
+                },
+                "Additionalpartyidentificationcontent": {
+                  "type": "string"
+                },
+                "Addressinformation": {
+                  "type": "object",
+                  "properties": {
+                    "Cityname": {
+                      "type": "string"
+                    },
+                    "Partyname": {
+                      "type": "string"
+                    },
+                    "Postalcode": {
+                      "type": "string"
+                    },
+                    "State": {
+                      "type": "string"
+                    },
+                    "Streetaddressone": {
+                      "type": "string"
+                    },
+                    "Provinceidentity": {
+                      "type": "string"
+                    },
+                    "Geographicalcoordinatesinformation": {
+                      "type": "object",
+                      "properties": {
+                        "Latitude": {
+                          "type": "string"
+                        },
+                        "Longitude": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Latitude",
+                        "Longitude"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "Cityname",
+                    "Partyname",
+                    "Postalcode",
+                    "State",
+                    "Streetaddressone",
+                    "Provinceidentity",
+                    "Geographicalcoordinatesinformation"
+                  ]
+                }
+              },
+              "required": [
+                "GloballocationnumberGLN",
+                "Additionalpartyidentificationcontent",
+                "Addressinformation"
+              ]
+            },
+            "Requesteddeliverydatetimeinformation": {
+              "type": "object",
+              "properties": {
+                "Requesteddeliverydatetime": {
+                  "type": "object",
+                  "properties": {
+                    "Date": {
+                      "type": "string"
+                    },
+                    "Time": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Date",
+                    "Time"
+                  ]
+                },
+                "Requesteddeliverytimeperiod": {
+                  "type": "object",
+                  "properties": {
+                    "Enddateperiod": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Enddateperiod"
+                  ]
+                }
+              },
+              "required": [
+                "Requesteddeliverydatetime",
+                "Requesteddeliverytimeperiod"
+              ]
+            }
+          },
+          "required": [
+            "Shiptopartyinformation",
+            "Requesteddeliverydatetimeinformation"
+          ]
+        },
+        "Paymenttermsinformation": {
+          "type": "object",
+          "properties": {
+            "Paymenttermsdescription": {
+              "type": "object",
+              "properties": {
+                "Paymenttermsdescriptioncontent": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Paymenttermsdescriptioncontent"
+              ]
+            }
+          },
+          "required": [
+            "Paymenttermsdescription"
+          ]
+        },
+        "Totalmonetarynetamount": {
+          "type": "object",
+          "properties": {
+            "Totalmonetarynetamountcontent": {
+              "type": "string"
+            },
+            "Currencycode": {
+              "type": "object",
+              "properties": {
+                "Currencycodecontent": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Currencycodecontent"
+              ]
+            }
+          },
+          "required": [
+            "Totalmonetarynetamountcontent",
+            "Currencycode"
+          ]
+        },
+        "Totalrequestedquantity": {
+          "type": "object",
+          "properties": {
+            "Totalrequestedquantitycontent": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "Totalrequestedquantitycontent"
+          ]
+        },
+        "Orderline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Businessdocumentlinenumber": {
+                "type": "integer"
+              },
+              "Totalrequestedquantity": {
+                "type": "object",
+                "properties": {
+                  "Totalrequestedquantitycontent": {
+                    "type": "integer"
+                  },
+                  "Measurementunitcode": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Totalrequestedquantitycontent",
+                  "Measurementunitcode"
+                ]
+              },
+              "Tradeitemlistprice": {
+                "type": "object",
+                "properties": {
+                  "Tradeitemlistpricecontent": {
+                    "type": "string"
+                  },
+                  "Currencycode": {
+                    "type": "object",
+                    "properties": {
+                      "Currencycodecontent": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Currencycodecontent"
+                    ]
+                  }
+                },
+                "required": [
+                  "Tradeitemlistpricecontent",
+                  "Currencycode"
+                ]
+              },
+              "Tradeitemnetprice": {
+                "type": "object",
+                "properties": {
+                  "Tradeitemnetpricecontent": {
+                    "type": "string"
+                  },
+                  "Currencycode": {
+                    "type": "object",
+                    "properties": {
+                      "Currencycodecontent": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Currencycodecontent"
+                    ]
+                  }
+                },
+                "required": [
+                  "Tradeitemnetpricecontent",
+                  "Currencycode"
+                ]
+              },
+              "leviedDutyFeeTax": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dutyFeeTaxPercentage": {
+                      "type": "string"
+                    },
+                    "dutyFeeTaxCategoryCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "dutyFeeTaxPercentage",
+                    "dutyFeeTaxCategoryCode"
+                  ]
+                }
+              },
+              "Lineitemnetmonetaryamount": {
+                "type": "object",
+                "properties": {
+                  "Lineitemnetmonetaryamountcontent": {
+                    "type": "string"
+                  },
+                  "Currencycode": {
+                    "type": "object",
+                    "properties": {
+                      "Currencycodecontent": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Currencycodecontent"
+                    ]
+                  }
+                },
+                "required": [
+                  "Lineitemnetmonetaryamountcontent",
+                  "Currencycode"
+                ]
+              },
+              "Requestedtradeiteminformation": {
+                "type": "object",
+                "properties": {
+                  "GlobaltradeitemnumberGTIN": {
+                    "type": "string"
+                  },
+                  "Additionaltradeitemidentification": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Additionaltradeitemidentificationcontent": {
+                          "type": "string"
+                        },
+                        "Additionaltradeitemidentificationtypecodecontent": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Additionaltradeitemidentificationcontent",
+                        "Additionaltradeitemidentificationtypecodecontent"
+                      ]
+                    }
+                  },
+                  "Tradeitemquantity": {
+                    "type": "object",
+                    "properties": {
+                      "Tradeitemquantitycontent": {
+                        "type": "string"
+                      },
+                      "Measurementunitcode": {
+                        "type": "object",
+                        "properties": {
+                          "Measurementunitcodecontent": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "Measurementunitcodecontent"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "Tradeitemquantitycontent",
+                      "Measurementunitcode"
+                    ]
+                  },
+                  "Tradeitemdescription": {
+                    "type": "object",
+                    "properties": {
+                      "Tradeitemdescriptioncontent": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Tradeitemdescriptioncontent"
+                    ]
+                  }
+                },
+                "required": [
+                  "GlobaltradeitemnumberGTIN",
+                  "Additionaltradeitemidentification",
+                  "Tradeitemquantity",
+                  "Tradeitemdescription"
+                ]
+              },
+              "allowanceCharge": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "allowanceChargePercentage": {
+                      "type": "string"
+                    },
+                    "allowanceChargeType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "allowanceChargePercentage",
+                    "allowanceChargeType"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "Businessdocumentlinenumber",
+              "Totalrequestedquantity",
+              "Tradeitemlistprice",
+              "Tradeitemnetprice",
+              "leviedDutyFeeTax",
+              "Lineitemnetmonetaryamount",
+              "Requestedtradeiteminformation",
+              "allowanceCharge"
+            ]
+          }
+        }
+      },
+      "required": [
+        "Revisionnumber",
+        "Businessdocumentcreationdatetime",
+        "Referencedrelatedorderinformation",
+        "Businessdocumentstatuscode",
+        "Businessdocumentstandardversion",
+        "Orderreceiptacknowledgementrequestindicator",
+        "Businessdocumentidentificationinformation",
+        "Orderinstructiondescription",
+        "Deliveryinstructionsdescription",
+        "Ordertypecode",
+        "Buyerpartyinformation",
+        "Sellerpartyinformation",
+        "Billtopartyinformation",
+        "Requestedtradeiteminformation",
+        "Orderedtradeitemlogisticalinformation",
+        "Paymenttermsinformation",
+        "Totalmonetarynetamount",
+        "Totalrequestedquantity",
+        "Orderline"
+      ]
+    }
+  },
+  "required": [
+    "Order"
+  ]
+}

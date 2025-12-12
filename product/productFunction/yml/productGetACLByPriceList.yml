@@ -1,0 +1,14 @@
+productGetACLByPriceList:
+  handler: product/productFunction/js/productGetACLByPriceList.productGetACLByPriceList
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/acl/by/pricelist/{productPriceListCode}/{gln}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

@@ -1,0 +1,5 @@
+cloudFrontOriginAccessIdentity:
+  Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+  Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: ${self:app}-${self:provider.stage}-${self:org}

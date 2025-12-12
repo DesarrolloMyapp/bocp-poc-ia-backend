@@ -1,0 +1,14 @@
+orderInsertResponse:
+  handler: order/orderFunction/js/orderInsertResponse.orderInsertResponse
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-order/response/save
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

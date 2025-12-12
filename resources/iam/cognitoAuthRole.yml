@@ -1,0 +1,26 @@
+cognitoAuthRole:
+  Type: AWS::IAM::Role
+  Properties:
+    RoleName: cognito-${self:app}-${self:provider.stage}-auth-role
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Principal:
+            Federated: cognito-identity.amazonaws.com
+          Action: [ 'sts:AssumeRole' ]
+    Policies:
+      - PolicyName: ${self:app}-${self:provider.stage}-cognito-policy
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: "Allow"
+              Action: 
+              - mobileanalytics:PutEvents
+              - cognito-sync:*
+              - cognito-identity:*
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              - ses:SendEmail
+              Resource: "*"

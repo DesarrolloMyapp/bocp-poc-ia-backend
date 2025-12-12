@@ -1,0 +1,14 @@
+orderDashboards:
+  handler: dashboards/dashboardsFunction/js/orderDashboards.orderDashboards
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-dashboards/order
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

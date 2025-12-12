@@ -1,0 +1,14 @@
+userUpdateByCognito:
+  handler: user/userFunction/js/userUpdateByCognito.userUpdateByCognito
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/cognito
+        method: PUT
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

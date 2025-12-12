@@ -1,0 +1,14 @@
+productGetByACL:
+  handler: product/productFunction/js/productGetByACL.productGetByACL
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/acl/by/gln/{glnSeller}/{glnBuyer}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

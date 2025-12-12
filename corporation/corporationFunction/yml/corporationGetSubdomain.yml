@@ -1,0 +1,14 @@
+corporationGetSubdomain:
+  handler: corporation/corporationFunction/js/corporationGetSubdomain.corporationGetSubdomain
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-corporation/subdomain/{subdomain}
+        method: GET
+        integration: lambda
+        # authorizer:
+        #   type: COGNITO_USER_POOLS
+        #   authorizerId:
+        #     Ref: apiGatewayAuthorizer
+        cors: true

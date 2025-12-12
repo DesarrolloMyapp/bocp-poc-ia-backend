@@ -1,0 +1,14 @@
+userGetGLN:
+  handler: user/userFunction/js/userGetGLN.userGetGLN
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/gln/{gln}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

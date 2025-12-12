@@ -1,0 +1,14 @@
+userConfirmationApp:
+  handler: user/userFunction/js/userConfirmationApp.userConfirmationApp
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/confirmationApp
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

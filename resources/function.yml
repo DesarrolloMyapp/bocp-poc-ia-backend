@@ -1,0 +1,89 @@
+# corporation
+corporationGetSubdomain: ${file(corporation/corporationFunction/yml/corporationGetSubdomain.yml):corporationGetSubdomain}
+corporationGetOne: ${file(corporation/corporationFunction/yml/corporationGetOne.yml):corporationGetOne}
+corporationGetAll: ${file(corporation/corporationFunction/yml/corporationGetAll.yml):corporationGetAll}
+corporationGetAllCompanys: ${file(corporation/corporationFunction/yml/corporationGetAllCompanys.yml):corporationGetAllCompanys}
+corporationInsert: ${file(corporation/corporationFunction/yml/corporationInsert.yml):corporationInsert}
+corporationUpdate: ${file(corporation/corporationFunction/yml/corporationUpdate.yml):corporationUpdate}
+corporationUploadFile: ${file(corporation/corporationFunction/yml/corporationUploadFile.yml):corporationUploadFile}
+# role
+roleGetCorporation: ${file(role/roleFunction/yml/roleGetCorporation.yml):roleGetCorporation}
+roleInsert: ${file(role/roleFunction/yml/roleInsert.yml):roleInsert}
+roleGetOne: ${file(role/roleFunction/yml/roleGetOne.yml):roleGetOne}
+templateRolAppGetAll: ${file(role/roleFunction/yml/templateRolAppGetAll.yml):templateRolAppGetAll}
+rolAdd: ${file(role/roleFunction/yml/rolAdd.yml):rolAdd}
+roleGetOneElement: ${file(role/roleFunction/yml/roleGetOneElement.yml):roleGetOneElement}
+# user
+userGetOneCognito: ${file(user/userFunction/yml/userGetOneCognito.yml):userGetOneCognito}
+userGetOne: ${file(user/userFunction/yml/userGetOne.yml):userGetOne}
+userGetOneNoLog: ${file(user/userFunction/yml/userGetOneNoLog.yml):userGetOneNoLog}
+userGetCorporation: ${file(user/userFunction/yml/userGetCorporation.yml):userGetCorporation}
+userGetGLN: ${file(user/userFunction/yml/userGetGLN.yml):userGetGLN}
+userInsert: ${file(user/userFunction/yml/userInsert.yml):userInsert}
+userUpdate: ${file(user/userFunction/yml/userUpdate.yml):userUpdate}
+userUpdateByCognito: ${file(user/userFunction/yml/userUpdateByCognito.yml):userUpdateByCognito}
+customMessage: ${file(user/userFunction/yml/userSendSignupEmail.yml):customMessage}
+preSignUp: ${file(user/userFunction/yml/userPreSignup.yml):preSignUp}
+postConfirmation: ${file(user/userFunction/yml/userPostConfirmation.yml):postConfirmation}
+userNotificationCredencials: ${file(user/userFunction/yml/userNotificationCredencials.yml):userNotificationCredencials}
+userVoucher: ${file(user/userFunction/yml/userVoucher.yml):userVoucher}
+userSendNotification: ${file(user/userFunction/yml/userSendNotification.yml):userSendNotification}
+userVacationsLetter: ${file(user/userFunction/yml/userVacationsLetter.yml):userVacationsLetter}
+userRegistrationValidation: ${file(user/userFunction/yml/userRegistrationValidation.yml):userRegistrationValidation}
+userTemporaryGetAll: ${file(user/userFunction/yml/userTemporaryGetAll.yml):userTemporaryGetAll}
+userTemporaryGetAllCorporation: ${file(user/userFunction/yml/userTemporaryGetAllCorporation.yml):userTemporaryGetAllCorporation}
+userTemporaryGetOne: ${file(user/userFunction/yml/userTemporaryGetOne.yml):userTemporaryGetOne}
+userConfirmationApp: ${file(user/userFunction/yml/userConfirmationApp.yml):userConfirmationApp}
+userGenerateToken: ${file(user/userFunction/yml/userGenerateToken.yml):userGenerateToken}
+userACLGetListGLN: ${file(user/userFunction/yml/userACLGetListGLN.yml):userACLGetListGLN}
+userACLGetMyPermission: ${file(user/userFunction/yml/userACLGetMyPermission.yml):userACLGetMyPermission}
+userACLInsert: ${file(user/userFunction/yml/userACLInsert.yml):userACLInsert}
+# # order
+# orderInsert: ${file(order/orderFunction/yml/orderInsert.yml):orderInsert}
+# orderGetAllByCompany: ${file(order/orderFunction/yml/orderGetAllByCompany.yml):orderGetAllByCompany}
+# orderUpdateStatusReview: ${file(order/orderFunction/yml/orderUpdateStatusReview.yml):orderUpdateStatusReview}
+# orderGetAll: ${file(order/orderFunction/yml/orderGetAll.yml):orderGetAll}
+# orderGetOne: ${file(order/orderFunction/yml/orderGetOne.yml):orderGetOne}
+# orderGetProduct: ${file(order/orderFunction/yml/orderGetProduct.yml):orderGetProduct}
+# orderGetGLN: ${file(order/orderFunction/yml/orderGetGLN.yml):orderGetGLN}
+# orderGetRFC: ${file(order/orderFunction/yml/orderGetRFC.yml):orderGetRFC}
+# orderInsertResponse: ${file(order/orderFunction/yml/orderInsertResponse.yml):orderInsertResponse}
+# orderResponseGetOne: ${file(order/orderFunction/yml/orderResponseGetOne.yml):orderResponseGetOne}
+# orderResponseGetAllByCompany: ${file(order/orderFunction/yml/orderResponseGetAllByCompany.yml):orderResponseGetAllByCompany}
+# orderReception: ${file(order/orderFunction/yml/orderReception.yml):orderReception}
+# orderGetUl: ${file(order/orderFunction/yml/orderGetUl.yml):orderGetUl}
+# orderInsertByApi: ${file(order/orderFunction/yml/orderInsertByApi.yml):orderInsertByApi}
+# orderInsertResponseByApi: ${file(order/orderFunction/yml/orderInsertResponseByApi.yml):orderInsertResponseByApi}
+# orderGetByApi: ${file(order/orderFunction/yml/orderGetByApi.yml):orderGetByApi}
+# orderResponseGetByApi: ${file(order/orderFunction/yml/orderResponseGetByApi.yml):orderResponseGetByApi}
+# orderResponseUpdate: ${file(order/orderFunction/yml/orderResponseUpdate.yml):orderResponseUpdate}
+# # codes
+# codeGetAll: ${file(codes/codeFunction/yml/codeGetAll.yml):codeGetAll}
+# # Notifications
+# notificationsGetUser: ${file(notifications/notificationsFunction/yml/notificationsGetUser.yml):notificationsGetUser}
+# notificationsInsert: ${file(notifications/notificationsFunction/yml/notificationsInsert.yml):notificationsInsert}
+# notificationsUpdate: ${file(notifications/notificationsFunction/yml/notificationsUpdate.yml):notificationsUpdate}
+# # dashboards
+# orderDashboards: ${file(dashboards/dashboardsFunction/yml/orderDashboards.yml):orderDashboards}
+# orderResponseDashboard: ${file(dashboards/dashboardsFunction/yml/orderResponseDashboard.yml):orderResponseDashboard}
+# orderShippingTop3GLN: ${file(dashboards/dashboardsFunction/yml/orderShippingTop3GLN.yml):orderShippingTop3GLN}
+# userDashBoardActivity: ${file(dashboards/dashboardsFunction/yml/userDashBoardActivity.yml):userDashBoardActivity}
+# userDashboards: ${file(dashboards/dashboardsFunction/yml/userDashboards.yml):userDashboards}
+# orderEANDasboard: ${file(dashboards/dashboardsFunction/yml/orderEANDasboard.yml):orderEANDasboard}
+# # products
+# productInsert: ${file(product/productFunction/yml/productInsert.yml):productInsert}
+# productUpdate: ${file(product/productFunction/yml/productUpdate.yml):productUpdate}
+# productGetByGln: ${file(product/productFunction/yml/productGetByGln.yml):productGetByGln}
+# productGetOne: ${file(product/productFunction/yml/productGetOne.yml):productGetOne}
+# productGetPriceListByGtin: ${file(product/productFunction/yml/productGetPriceListByGtin.yml):productGetPriceListByGtin}
+# productInsertPrice: ${file(product/productFunction/yml/productInsertPrice.yml):productInsertPrice}
+# productInsertACL: ${file(product/productFunction/yml/productInsertACL.yml):productInsertACL}
+# productGetACLByPriceList: ${file(product/productFunction/yml/productGetACLByPriceList.yml):productGetACLByPriceList}
+# productUpdateACL: ${file(product/productFunction/yml/productUpdateACL.yml):productUpdateACL}
+# productGetByACL: ${file(product/productFunction/yml/productGetByACL.yml):productGetByACL}
+# # locations
+# locationsGetByGLN: ${file(locations/locationsFunction/yml/locationsGetByGLN.yml):locationsGetByGLN}
+# locationsInsert: ${file(locations/locationsFunction/yml/locationsInsert.yml):locationsInsert}
+# locationsUpdate: ${file(locations/locationsFunction/yml/locationsUpdate.yml):locationsUpdate}
+# # currency
+# currency: ${file(currency/currencyFunction/yml/currency.yml):currency}

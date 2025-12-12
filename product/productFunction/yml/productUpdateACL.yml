@@ -1,0 +1,14 @@
+productUpdateACL:
+  handler: product/productFunction/js/productUpdateACL.productUpdateACL
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/acl/
+        method: PUT
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

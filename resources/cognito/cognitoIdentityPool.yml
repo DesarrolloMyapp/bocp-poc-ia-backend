@@ -1,0 +1,11 @@
+cognitoIdentityPool:
+  Type: AWS::Cognito::IdentityPool
+  Properties:
+    IdentityPoolName: ${self:app}-${self:provider.stage}-identity-pool
+    AllowClassicFlow: false
+    AllowUnauthenticatedIdentities: false
+    CognitoIdentityProviders: 
+      - ClientId: 
+          Ref: cognitoUserPoolClient
+        ProviderName: 
+          Fn::GetAtt: [ "cognitoUserPool", "ProviderName" ]

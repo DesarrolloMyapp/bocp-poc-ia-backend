@@ -1,0 +1,6 @@
+customMessage:
+  handler: user/userFunction/js/userSendSignupEmail.userSendSignupEmail
+  role: executeLambda
+  environment:
+    stage: ${self:provider.stage}
+    region: ${self:provider.region}

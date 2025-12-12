@@ -1,0 +1,14 @@
+orderUpdateStatusReview:
+  handler: order/orderFunction/js/orderUpdateStatusReview.orderUpdateStatusReview
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-order/updateStatus/{orderCode}/{method}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

@@ -1,0 +1,14 @@
+locationsUpdate:
+  handler: locations/locationsFunction/js/locationsUpdate.locationsUpdate
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-locations/
+        method: PUT
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

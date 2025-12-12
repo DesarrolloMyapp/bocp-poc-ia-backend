@@ -1,0 +1,14 @@
+notificationsGetUser:
+  handler: notifications/notificationsFunction/js/notificationsGetUser.notificationsGetUser
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-notifications/user/{one}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

@@ -1,0 +1,24 @@
+s3BucketPolicyFiles:
+  Type: AWS::S3::BucketPolicy
+  Properties:
+    PolicyDocument:
+      Id: s3BucketPolicyFiles
+      Statement:
+        - Sid: Grant a CloudFront Origin Identity access to support private content
+          Effect: Allow
+          Principal:
+            AWS: !Join
+              - ""
+              - - "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity "
+                - !Ref cloudFrontOriginAccessIdentity
+          Action: "s3:GetObject"
+          Resource: !Join
+            - ""
+            - - "arn:aws:s3:::"
+              - !Ref s3BucketFiles
+              - /*
+          Condition:
+            StringLike:
+              aws:Referer:
+                - "*myapppayroll*"
+    Bucket: !Ref s3BucketFiles

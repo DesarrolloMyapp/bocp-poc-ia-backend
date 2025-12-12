@@ -1,0 +1,14 @@
+productInsert:
+  handler: product/productFunction/js/productInsert.productInsert
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/save
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

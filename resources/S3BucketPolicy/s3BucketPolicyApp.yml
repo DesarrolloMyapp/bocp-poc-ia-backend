@@ -1,0 +1,20 @@
+s3BucketPolicyApp:
+  Type: AWS::S3::BucketPolicy
+  Properties:
+    PolicyDocument:
+      Id: S3BucketPolicyApp
+      Statement:
+        - Sid: CloudFrontAccess
+          Effect: Allow
+          Principal:
+            AWS: !Join
+              - ""
+              - - "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity "
+                - !Ref cloudFrontOriginAccessIdentity
+          Action: "s3:GetObject"
+          Resource: !Join
+            - ""
+            - - "arn:aws:s3:::"
+              - !Ref s3BucketApp
+              - /*
+    Bucket: !Ref s3BucketApp

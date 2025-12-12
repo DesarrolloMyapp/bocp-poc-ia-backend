@@ -1,0 +1,14 @@
+orderResponseGetAllByCompany:
+  handler: order/orderFunction/js/orderResponseGetAllByCompany.orderResponseGetAllByCompany
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-order/response/corporation/{corporation}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

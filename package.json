@@ -1,0 +1,29 @@
+{
+  "name": "gs1apiedibackend",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "ajv-i18n": "^4.2.0",
+    "amazon-cognito-identity-js": "^4.6.3",
+    "aws-sdk": "^2.1640.0",
+    "axios": "^1.6.2",
+    "busboy": "^1.6.0",
+    "fast-xml-parser": "^4.3.4",
+    "install": "^0.13.0",
+    "js2xmlparser": "^5.0.0",
+    "mysql2": "^2.2.5",
+    "node-fetch": "^3.3.2",
+    "node-x12-edi": "^1.0.3",
+    "nodemailer": "^6.7.7",
+    "npm": "^10.4.0",
+    "uuid": "^8.3.2",
+    "xml2js": "^0.6.2",
+    "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "@angular/cli": "^15.1.2",
+    "serverless-plugin-split-stacks": "^1.13.0"
+  }
+}

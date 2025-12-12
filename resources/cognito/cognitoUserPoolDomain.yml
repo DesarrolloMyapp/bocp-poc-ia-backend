@@ -1,0 +1,6 @@
+cognitoUserPoolDomain:
+  Type: AWS::Cognito::UserPoolDomain
+  Properties:
+    Domain: ${self:app}-${self:provider.stage}
+    UserPoolId: 
+      Ref: cognitoUserPool

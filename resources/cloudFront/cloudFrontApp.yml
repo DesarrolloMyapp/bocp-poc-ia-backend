@@ -1,0 +1,62 @@
+cloudFrontApp:
+  Type: AWS::CloudFront::Distribution
+  Properties:
+    DistributionConfig:
+      Origins:
+        - DomainName: ${self:app}-${self:provider.stage}-${self:org}.s3.amazonaws.com
+          Id: myS3Origin
+          S3OriginConfig: {
+            OriginAccessIdentity: 
+              !Join [ '', ['origin-access-identity/cloudfront/', !Ref cloudFrontOriginAccessIdentity] ]
+          }
+        - DomainName: ${self:app}-${self:provider.stage}-files.s3.amazonaws.com
+          Id: uploadFiles
+          S3OriginConfig: {
+            OriginAccessIdentity: 
+              !Join [ '', ['origin-access-identity/cloudfront/', !Ref cloudFrontOriginAccessIdentity] ]
+          }
+      Enabled: "true"
+      DefaultRootObject: index.html
+      CustomErrorResponses:
+        - ErrorCachingMinTTL: 300
+          ErrorCode: 404
+          ResponseCode: 200
+          ResponsePagePath: "/index.html"
+        - ErrorCachingMinTTL: 300
+          ErrorCode: 403
+          ResponseCode: 200
+          ResponsePagePath: "/index.html"
+      CacheBehaviors:
+        - 
+          PathPattern: "files/*.*"
+          CachedMethods:
+            - GET 
+            - HEAD
+          AllowedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: "false"
+            Headers:
+              - Referer
+            Cookies:
+              Forward: none
+          TargetOriginId: uploadFiles
+          ViewerProtocolPolicy: redirect-to-https
+      DefaultCacheBehavior:
+        AllowedMethods:
+          - DELETE
+          - GET
+          - HEAD
+          - OPTIONS
+          - PATCH
+          - POST
+          - PUT
+        TargetOriginId: myS3Origin
+        ForwardedValues:
+          QueryString: "false"
+          Cookies:
+            Forward: none
+        ViewerProtocolPolicy: redirect-to-https
+      ViewerCertificate:
+        CloudFrontDefaultCertificate: "true"

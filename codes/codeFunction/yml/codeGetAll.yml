@@ -1,0 +1,14 @@
+codeGetAll:
+  handler: codes/codeFunction/js/codeGetAll.codeGetAll
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-code/{one}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

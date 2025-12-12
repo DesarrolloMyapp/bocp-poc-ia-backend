@@ -1,0 +1,14 @@
+userGetOneCognito:
+  handler: user/userFunction/js/userGetOneCognito.userGetOneCognito
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/cognito/{cognito}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

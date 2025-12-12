@@ -1,0 +1,14 @@
+userGenerateToken:
+  handler: user/userFunction/js/userGenerateToken.userGenerateToken
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/generate/accessToken
+        method: POST
+        integration: lambda
+        # authorizer:
+        #   type: COGNITO_USER_POOLS
+        #   authorizerId:
+        #     Ref: apiGatewayAuthorizer
+        cors: true   

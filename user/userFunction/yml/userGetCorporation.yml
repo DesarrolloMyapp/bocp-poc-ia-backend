@@ -1,0 +1,14 @@
+userGetCorporation:
+  handler: user/userFunction/js/userGetCorporation.userGetCorporation
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/corporation/{corporation}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

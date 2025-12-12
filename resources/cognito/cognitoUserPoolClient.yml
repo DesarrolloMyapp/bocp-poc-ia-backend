@@ -1,0 +1,26 @@
+cognitoUserPoolClient:
+  Type: AWS::Cognito::UserPoolClient
+  Properties:
+    ClientName: ${self:app}-${self:provider.stage}-user-pool-client
+    UserPoolId:
+      Ref: cognitoUserPool
+    ExplicitAuthFlows:
+      - ADMIN_NO_SRP_AUTH
+    GenerateSecret: false
+    SupportedIdentityProviders: 
+      - COGNITO
+      # - Google
+    CallbackURLs:
+      - http://localhost:8081/
+    LogoutURLs:
+      - http://localhost:8081/
+    AllowedOAuthFlowsUserPoolClient: true
+    AllowedOAuthFlows:
+      - code
+    AllowedOAuthScopes:
+      - phone
+      - email
+      - openid
+      - profile
+      - aws.cognito.signin.user.admin
+

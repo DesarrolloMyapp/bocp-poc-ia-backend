@@ -1,0 +1,14 @@
+orderReception:
+  handler: order/orderFunction/js/orderReception.orderReception
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-order/reception/one/{one}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

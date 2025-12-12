@@ -1,0 +1,54 @@
+cognitoUserPool:
+  Type: AWS::Cognito::UserPool
+  Properties:
+    UserPoolName: ${self:app}-${self:provider.stage}-user-pool
+    UsernameAttributes:
+      - email
+    AutoVerifiedAttributes:
+      - email
+    EmailConfiguration:
+      EmailSendingAccount: DEVELOPER
+      SourceArn: ${self:custom.sesIdentity.${self:provider.stage}}
+      From: 'apiEdi <	milton.rodriguez@myappsoftware.com>'
+    VerificationMessageTemplate:
+      DefaultEmailOption: CONFIRM_WITH_CODE
+      EmailSubjectByLink:
+        'Enlace de Verificación GS1 EDI'
+      EmailSubject:
+        'Código de Verificación GS1 EDI'
+      EmailMessage:
+        'Su código de verificación es {####}'
+      EmailMessageByLink:
+        'Para validar tu usuario ingresa en el siguiente link {##Verify Email##}'
+    Schema:
+      - Name: email
+        Required: true
+        Mutable: true
+      - Name: picture
+        Required: true
+        Mutable: true
+      - Name: name
+        Required: true
+        Mutable: true
+      - Name: role
+        Mutable: True
+        AttributeDataType: String
+      - Name: theme
+        Mutable: True
+        AttributeDataType: String
+      - Name: corporation
+        Mutable: True
+        AttributeDataType: String 
+    UserPoolAddOns:
+      AdvancedSecurityMode: ENFORCED
+    LambdaConfig:
+      PreSignUp: { 'Fn::GetAtt': [ 'PreSignUpLambdaFunction', 'Arn' ] }
+      PostConfirmation: { 'Fn::GetAtt': [ 'PostConfirmationLambdaFunction', 'Arn' ] }
+      CustomMessage: { 'Fn::GetAtt': [ 'CustomMessageLambdaFunction', 'Arn' ] }
+    Policies:
+      PasswordPolicy:
+        MinimumLength: 8
+        RequireLowercase: True
+        RequireNumbers: True
+        RequireSymbols: True
+        RequireUppercase: True

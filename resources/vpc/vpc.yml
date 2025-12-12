@@ -1,0 +1,16 @@
+# vpc:
+#       securityGroupIds:
+#         - sg-05a61d3b9b5248844
+#       subnetIds:
+#         - subnet-0f86e4787fea8e076
+#         - subnet-0ac9f251050ff1c49
+#         - subnet-0edc9dc2103213a03
+#         - subnet-0301c1947e2a95c49
+#         - subnet-0e21b6519350dab5b
+#         - subnet-0e57e6cb273e25532
+
+vpc:
+      securityGroupIds:
+        - sg-0103a4fd1e4e893ce 
+      subnetIds:
+        - subnet-08910bbd514922216

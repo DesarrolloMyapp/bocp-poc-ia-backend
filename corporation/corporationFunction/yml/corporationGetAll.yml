@@ -1,0 +1,14 @@
+corporationGetAll:
+  handler: corporation/corporationFunction/js/corporationGetAll.corporationGetAll
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-corporation/all/{all}
+        method: GET
+        integration: lambda
+        # authorizer:
+        #   type: COGNITO_USER_POOLS
+        #   authorizerId:
+        #     Ref: apiGatewayAuthorizer
+        cors: true

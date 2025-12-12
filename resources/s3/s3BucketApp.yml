@@ -1,0 +1,7 @@
+s3BucketApp:
+  Type: AWS::S3::Bucket
+  Properties:
+    BucketName: ${self:app}-${self:provider.stage}-${self:org}
+    WebsiteConfiguration:
+      IndexDocument: "index.html"
+      ErrorDocument: "index.html"

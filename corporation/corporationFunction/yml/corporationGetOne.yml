@@ -1,0 +1,14 @@
+corporationGetOne:
+  handler: corporation/corporationFunction/js/corporationGetOne.corporationGetOne
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-corporation/one/{one}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

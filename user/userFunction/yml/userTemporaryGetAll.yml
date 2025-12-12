@@ -1,0 +1,14 @@
+userTemporaryGetAll:
+  handler: user/userFunction/js/userTemporaryGetAll.userTemporaryGetAll
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/temporary/
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

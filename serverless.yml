@@ -1,0 +1,68 @@
+service: bocpiabackend
+app: bocppocia
+org: miton
+frameworkVersion: "3.38.0"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  # vpc: ${file(resources/vpc/vpc.yml):vpc}
+  # stage: dev
+  stage: dev
+  # stage: prod
+  region: us-east-1
+  # region: us-west-2
+  lambdaHashingVersion: 20201221
+  versionFunctions: false
+
+plugins:
+  - serverless-plugin-split-stacks
+custom:
+  sesIdentity:
+    dev: arn:aws:ses:us-east-1:565699611640:identity/milton.rodriguez@myappsoftware.com
+    qa: arn:aws:ses:us-east-1:565699611640:identity/milton.rodriguez@myappsoftware.com
+    prod: arn:aws:ses:us-east-1:565699611640:identity/milton.rodriguez@myappsoftware.com
+  enterprise:
+    collectLambdaLogs: false
+
+functions: ${file(resources/function.yml)}
+
+   
+        
+
+resources:
+  Resources:
+    # iam role
+    cognitoAuthRole: ${file(resources/iam/cognitoAuthRole.yml):cognitoAuthRole}
+    cognitoUnauthRole: ${file(resources/iam/cognitoUnauthRole.yml):cognitoUnauthRole}
+    executeLambda: ${file(resources/iam/executeLambda.yml):executeLambda}
+    # cognito & authorizer
+    cognitoUserPool: ${file(resources/cognito/cognitoUserPool.yml):cognitoUserPool}
+    cognitoIdentityPool: ${file(resources/cognito/cognitoIdentityPool.yml):cognitoIdentityPool}
+    cognitoUserPoolDomain: ${file(resources/cognito/cognitoUserPoolDomain.yml):cognitoUserPoolDomain}
+    cognitoUserPoolIdentityProvider: ${file(resources/cognito/cognitoUserPoolIdentityProvider.yml):cognitoUserPoolIdentityProvider}
+    cognitoIdentityPoolRoleAttachment: ${file(resources/cognito/cognitoIdentityPoolRoleAttachment.yml):cognitoIdentityPoolRoleAttachment}
+    cognitoUserPoolClient: ${file(resources/cognito/cognitoUserPoolClient.yml):cognitoUserPoolClient}
+    # apigateway
+    apiGatewayAuthorizer: ${file(resources/apiGateway/apiGatewayAuthorizer.yml):apiGatewayAuthorizer}
+    # cloudFront
+    cloudFrontApp: ${file(resources/cloudFront/cloudFrontApp.yml):cloudFrontApp}
+    cloudFrontOriginAccessIdentity: ${file(resources/cloudFront/cloudFrontOriginAccessIdentity.yml):cloudFrontOriginAccessIdentity}
+    # s3
+    s3BucketApp: ${file(resources/s3/s3BucketApp.yml):s3BucketApp}
+    s3BucketFiles: ${file(resources/s3/s3BucketFiles.yml):s3BucketFiles}
+    # s3 bucket policy
+    s3BucketPolicyApp: ${file(resources/s3BucketPolicy/s3BucketPolicyApp.yml):s3BucketPolicyApp}
+    s3BucketPolicyFiles: ${file(resources/s3BucketPolicy/s3BucketPolicyFiles.yml):s3BucketPolicyFiles}
+    # RDSSecurityGroupIngress:
+    #   Type: AWS::EC2::SecurityGroupIngress
+    #   Properties:
+    #     GroupId: sg-0103a4fd1e4e893ce 
+    #     IpProtocol: tcp
+    #     FromPort: 3306 
+    #     ToPort: 3306 
+    #     CidrIp: 0.0.0.0/0 
+    # vpc
+   
+    # rds
+    # rds: ${file(resources/rds/rds.yml):rds}

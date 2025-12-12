@@ -1,0 +1,14 @@
+locationsGetByGLN:
+  handler: locations/locationsFunction/js/locationsGetByGLN.locationsGetByGLN
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-locations/gln/{gln}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

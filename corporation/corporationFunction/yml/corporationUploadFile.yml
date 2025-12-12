@@ -1,0 +1,14 @@
+corporationUploadFile:
+  handler: corporation/corporationFunction/js/corporationUploadFile.corporationUploadFile
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-corporation/upload-files
+        method: POST
+        integration: lambda
+        # authorizer:
+        #   type: COGNITO_USER_POOLS
+        #   authorizerId:
+        #     Ref: apiGatewayAuthorizer
+        cors: true   

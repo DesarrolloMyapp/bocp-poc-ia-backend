@@ -1,0 +1,14 @@
+orderGetProduct:
+  handler: order/orderFunction/js/orderGetProduct.orderGetProduct
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-order/product
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

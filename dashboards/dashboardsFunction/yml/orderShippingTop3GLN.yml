@@ -1,0 +1,14 @@
+orderShippingTop3GLN:
+  handler: dashboards/dashboardsFunction/js/orderShippingTop3GLN.orderShippingTop3GLN
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-dashboards/orderGLNtop3
+        method: POST
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true   

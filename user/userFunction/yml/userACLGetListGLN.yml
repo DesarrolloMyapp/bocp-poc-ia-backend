@@ -1,0 +1,14 @@
+userACLGetListGLN:
+  handler: user/userFunction/js/userACLGetListGLN.userACLGetListGLN
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-user/userACLGetListGLN/{gln}/{type}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

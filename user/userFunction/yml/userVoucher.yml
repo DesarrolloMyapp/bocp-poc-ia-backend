@@ -1,0 +1,12 @@
+userVoucher:
+  handler: user/userFunction/js/userVoucher.userVoucher
+  role: executeLambda
+  environment:
+    stage: ${self:provider.stage}
+    region: ${self:provider.region}
+  events:
+    - http:
+        path: ${self:app}-user/userVoucher/
+        method: POST
+        integration: lambda
+        cors: true 

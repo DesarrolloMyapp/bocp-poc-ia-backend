@@ -1,0 +1,14 @@
+productUpdate:
+  handler: product/productFunction/js/productUpdate.productUpdate
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/
+        method: PUT
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

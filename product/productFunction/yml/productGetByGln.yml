@@ -1,0 +1,14 @@
+productGetByGln:
+  handler: product/productFunction/js/productGetByGln.productGetByGln
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/by/{gln}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

@@ -1,0 +1,14 @@
+templateRolAppGetAll:
+  handler: role/roleFunction/js/templateRolAppGetAll.templateRolAppGetAll
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-role/templateApp
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

@@ -1,0 +1,14 @@
+productGetPriceListByGtin:
+  handler: product/productFunction/js/productGetPriceListByGtin.productGetPriceListByGtin
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-product/price-list/{one}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

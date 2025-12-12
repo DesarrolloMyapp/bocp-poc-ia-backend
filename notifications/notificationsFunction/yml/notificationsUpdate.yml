@@ -1,0 +1,14 @@
+notificationsUpdate:
+  handler: notifications/notificationsFunction/js/notificationsUpdate.notificationsUpdate
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-notifications/
+        method: PUT
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true 

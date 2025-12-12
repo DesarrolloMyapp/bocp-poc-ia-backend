@@ -1,0 +1,44 @@
+rds:  
+  Type: AWS::RDS::DBCluster
+  Properties: 
+    # AssociatedRoles: 
+    #   - DBClusterRole
+    # AvailabilityZones: 
+    #   - String
+    # BacktrackWindow: Long
+    # BackupRetentionPeriod: Integer
+    DatabaseName: GS1APIEDI
+    DBClusterIdentifier: ${self:app}-${self:provider.stage}-${self:org}
+    # DBClusterParameterGroupName: String
+    # DBSubnetGroupName: String
+    DeletionProtection: true
+    EnableCloudwatchLogsExports: 
+      - audit
+      - error
+      - general
+      - slowquery
+    EnableHttpEndpoint: true
+    # EnableIAMDatabaseAuthentication: Boolean
+    Engine: aurora-mysql
+    EngineMode: serverless
+    EngineVersion: 5.6.mysql_aurora.1.23.2
+    # GlobalClusterIdentifier: String
+    # KmsKeyId: String
+    # MasterUsername: String
+    # MasterUserPassword: String
+    Port: 3306
+    # PreferredBackupWindow: String
+    # PreferredMaintenanceWindow: String
+    # ReplicationSourceIdentifier: String
+    RestoreType: full-copy
+    # ScalingConfiguration: 
+    #   ScalingConfiguration
+    # SnapshotIdentifier: String
+    SourceDBClusterIdentifier: String
+    SourceRegion: ${self:provider.region} 
+    # StorageEncrypted: String
+    # Tags: 
+    #   - Tag
+    # UseLatestRestorableTime: Boolean
+    VpcSecurityGroupIds: 
+      - String

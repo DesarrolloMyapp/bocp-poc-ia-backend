@@ -1,0 +1,14 @@
+roleGetCorporation:
+  handler: role/roleFunction/js/roleGetCorporation.roleGetCorporation
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-role/corporation/{corporation}
+        method: GET
+        integration: lambda
+        authorizer:
+          type: COGNITO_USER_POOLS
+          authorizerId:
+            Ref: apiGatewayAuthorizer
+        cors: true

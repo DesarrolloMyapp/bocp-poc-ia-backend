@@ -1,0 +1,10 @@
+userGetOneNoLog:
+  handler: user/userFunction/js/userGetOneEmail.userGetOneEmail
+  environment:
+    stage: ${self:provider.stage}
+  events:
+    - http:
+        path: ${self:app}-userNoLog/one/{one}
+        method: GET
+        integration: lambda
+        cors: true 

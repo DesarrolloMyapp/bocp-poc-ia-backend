@@ -1,0 +1,745 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "orderMessage": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "type": "object",
+          "properties": {
+            "ecomDocument": {
+              "type": "object",
+              "properties": {
+                "revisionnumber": {
+                  "type": "string"
+                },
+                "creationDateTime": {
+                  "type": "string"
+                },
+                "referencedOrder": {
+                  "type": "object",
+                  "properties": {
+                    "creationDateTime": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "creationDateTime"
+                  ]
+                },
+                "documentStatusCode": {
+                  "type": "string"
+                },
+                "documentStructureVersion": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "revisionnumber",
+                "creationDateTime",
+                "documentStatusCode",
+                "documentStructureVersion",
+                "referencedOrder"
+              ]
+            },
+            "orderIdentification": {
+              "type": "object",
+              "properties": {
+                "entityIdentification": {
+                  "type": "string"
+                },
+                "contentOwner": {
+                  "type": "object",
+                  "properties": {
+                    "gln": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "gln"
+                  ]
+                }
+              },
+              "required": [
+                "entityIdentification",
+                "contentOwner"
+              ]
+            },
+            "additionalOrderInstruction": {
+              "type": "string"
+            },
+            "deliveryTerms": {
+              "type": "object",
+              "properties": {
+                "deliveryInstruction": {
+                  "type": "string"
+                },
+                "orderTypeCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "deliveryInstruction",
+                "orderTypeCode"
+              ]
+            },
+            "buyer": {
+              "type": "object",
+              "properties": {
+                "gln": {
+                  "type": "string"
+                },
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "personName": {
+                      "type": "string"
+                    },
+                    "communicationChannel": {
+                      "type": "object",
+                      "properties": {
+                        "communicationChannelCode": {
+                          "type": "string"
+                        },
+                        "communicationValue": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "communicationChannelCode",
+                        "communicationValue"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "personName",
+                    "communicationChannel"
+                  ]
+                },
+                "organisationDetails": {
+                  "type": "object",
+                  "properties": {
+                    "organisationName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "organisationName"
+                  ]
+                }
+              },
+              "required": [
+                "gln",
+                "contact",
+                "organisationDetails"
+              ]
+            },
+            "seller": {
+              "type": "object",
+              "properties": {
+                "gln": {
+                  "type": "string"
+                },
+                "additionalPartyIdentification": {
+                  "type": "string"
+                },
+                "organisationDetails": {
+                  "type": "object",
+                  "properties": {
+                    "organisationName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "organisationName"
+                  ]
+                },
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "communicationChannel": {
+                      "type": "object",
+                      "properties": {
+                        "communicationValue": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "communicationValue"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "communicationChannel"
+                  ]
+                }
+              },
+              "required": [
+                "gln",
+                "additionalPartyIdentification",
+                "organisationDetails",
+                "address",
+                "contact"
+              ]
+            },
+            "billTo": {
+              "type": "object",
+              "properties": {
+                "gln": {
+                  "type": "string"
+                },
+                "organisationDetails": {
+                  "type": "object",
+                  "properties": {
+                    "organisationName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "organisationName"
+                  ]
+                }
+              },
+              "required": [
+                "gln",
+                "organisationDetails"
+              ]
+            },
+            "transactionalTradeItem": {
+              "type": "object",
+              "properties": {
+                "tradeItemClassification": {
+                  "type": "object",
+                  "properties": {
+                    "additionalTradeItemClassificationCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "additionalTradeItemClassificationCode"
+                  ]
+                }
+              },
+              "required": [
+                "tradeItemClassification"
+              ]
+            },
+            "orderLogisticalInformation": {
+              "type": "object",
+              "properties": {
+                "shipTo": {
+                  "type": "object",
+                  "properties": {
+                    "gln": {
+                      "type": "string"
+                    },
+                    "additionalPartyIdentification": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "city": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "streetAdressOne": {
+                          "type": "string"
+                        },
+                        "providenceCode": {
+                          "type": "string"
+                        },
+                        "geographicalCordinates": {
+                          "type": "object",
+                          "properties": {
+                            "latitude": {
+                              "type": "string"
+                            },
+                            "longitude": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "latitude",
+                            "longitude"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "city",
+                        "name",
+                        "postalCode",
+                        "state",
+                        "streetAdressOne",
+                        "providenceCode",
+                        "geographicalCordinates"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "gln",
+                    "additionalPartyIdentification",
+                    "address"
+                  ]
+                },
+                "orderLogisticalDateInformation": {
+                  "type": "object",
+                  "properties": {
+                    "requestedDeliveryDateTime": {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "type": "string"
+                        },
+                        "time": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "date",
+                        "time"
+                      ]
+                    },
+                    "requestedDeliveryDateRange": {
+                      "type": "object",
+                      "properties": {
+                        "endDate": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "endDate"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "requestedDeliveryDateTime",
+                    "requestedDeliveryDateRange"
+                  ]
+                }
+              },
+              "required": [
+                "shipTo",
+                "orderLogisticalDateInformation"
+              ]
+            },
+            "paymentTerms": {
+              "type": "object",
+              "properties": {
+                "paymentTermsDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "paymentTermsDescription"
+              ]
+            },
+            "totalMonetaryNetAmount": {
+              "type": "object",
+              "properties": {
+                "totalMonetaryAmountExcludingTaxes": {
+                  "type": "string"
+                },
+                "currencyCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "totalMonetaryAmountExcludingTaxes",
+                "currencyCode"
+              ]
+            },
+            "requestedQuantity": {
+              "type": "string"
+            },
+            "totalLineItemNumber": {
+              "type": "object",
+              "properties": {
+                "lineItemNumber": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "lineItemNumber"
+              ]
+            },
+            "orderLineItem": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lineItemNumber": {
+                        "type": "string"
+                      },
+                      "requestedQuantity": {
+                        "type": "object",
+                        "properties": {
+                          "_": {
+                            "type": "string"
+                          },
+                          "measurementUnitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "_",
+                          "measurementUnitCode"
+                        ]
+                      },
+                      "listPrice": {
+                        "type": "object",
+                        "properties": {
+                          "_": {
+                            "type": "string"
+                          },
+                          "currencyCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "_",
+                          "currencyCode"
+                        ]
+                      },
+                      "leviedDutyFeeTax": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "dutyFeeTaxPercentage": {
+                              "type": "string"
+                            },
+                            "dutyFeeTaxCategoryCode": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "dutyFeeTaxPercentage",
+                            "dutyFeeTaxCategoryCode"
+                          ]
+                        }
+                      },
+                      "netPrice": {
+                        "type": "object",
+                        "properties": {
+                          "_": {
+                            "type": "string"
+                          },
+                          "currencyCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "_",
+                          "currencyCode"
+                        ]
+                      },
+                      "netAmount": {
+                        "type": "object",
+                        "properties": {
+                          "_": {
+                            "type": "string"
+                          },
+                          "currencyCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "_",
+                          "currencyCode"
+                        ]
+                      },
+                      "transactionalTradeItem": {
+                        "type": "object",
+                        "properties": {
+                          "gtin": {
+                            "type": "string"
+                          },
+                          "additionalTradeItemIdentification": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "additionalTradeItemIdentificationcontent": {
+                                  "type": "string"
+                                },
+                                "additionalTradeItemIdentificationtypecodecontent": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "additionalTradeItemIdentificationcontent",
+                                "additionalTradeItemIdentificationtypecodecontent"
+                              ]
+                            }
+                          },
+                          "tradeItemQuantity": {
+                            "type": "object",
+                            "properties": {
+                              "tradeItemQuantity": {
+                                "type": "string"
+                              },
+                              "Measurementunitcodecontent": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "tradeItemQuantity",
+                              "Measurementunitcodecontent"
+                            ]
+                          },
+                          "tradeItemDescription": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "gtin",
+                          "additionalTradeItemIdentification",
+                          "tradeItemQuantity",
+                          "tradeItemDescription"
+                        ]
+                      },
+                      "allowanceCharge": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "allowanceChargePercentage": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "allowanceChargeType": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "allowanceChargePercentage",
+                            "allowanceChargeType"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "lineItemNumber",
+                      "requestedQuantity",
+                      "listPrice",
+                      "leviedDutyFeeTax",
+                      "netPrice",
+                      "netAmount",
+                      "transactionalTradeItem",
+                      "allowanceCharge"
+                    ]
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "lineItemNumber": {
+                      "type": "string"
+                    },
+                    "requestedQuantity": {
+                      "type": "object",
+                      "properties": {
+                        "_": {
+                          "type": "string"
+                        },
+                        "measurementUnitCode": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_",
+                        "measurementUnitCode"
+                      ]
+                    },
+                    "listPrice": {
+                      "type": "object",
+                      "properties": {
+                        "_": {
+                          "type": "string"
+                        },
+                        "currencyCode": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_",
+                        "currencyCode"
+                      ]
+                    },
+                    "leviedDutyFeeTax": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dutyFeeTaxPercentage": {
+                            "type": "string"
+                          },
+                          "dutyFeeTaxCategoryCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "dutyFeeTaxPercentage",
+                          "dutyFeeTaxCategoryCode"
+                        ]
+                      }
+                    },
+                    "netPrice": {
+                      "type": "object",
+                      "properties": {
+                        "_": {
+                          "type": "string"
+                        },
+                        "currencyCode": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_",
+                        "currencyCode"
+                      ]
+                    },
+                    "netAmount": {
+                      "type": "object",
+                      "properties": {
+                        "_": {
+                          "type": "string"
+                        },
+                        "currencyCode": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_",
+                        "currencyCode"
+                      ]
+                    },
+                    "transactionalTradeItem": {
+                      "type": "object",
+                      "properties": {
+                        "gtin": {
+                          "type": "string"
+                        },
+                        "additionalTradeItemIdentification": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "additionalTradeItemIdentificationcontent": {
+                                "type": "string"
+                              },
+                              "additionalTradeItemIdentificationtypecodecontent": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "additionalTradeItemIdentificationcontent",
+                              "additionalTradeItemIdentificationtypecodecontent"
+                            ]
+                          }
+                        },
+                        "tradeItemQuantity": {
+                          "type": "object",
+                          "properties": {
+                            "tradeItemQuantity": {
+                              "type": "string"
+                            },
+                            "Measurementunitcodecontent": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "tradeItemQuantity",
+                            "Measurementunitcodecontent"
+                          ]
+                        },
+                        "tradeItemDescription": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gtin",
+                        "additionalTradeItemIdentification",
+                        "tradeItemQuantity",
+                        "tradeItemDescription"
+                      ]
+                    },
+                    "allowanceCharge": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "allowanceChargePercentage": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "allowanceChargeType": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "allowanceChargePercentage",
+                          "allowanceChargeType"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "lineItemNumber",
+                    "requestedQuantity",
+                    "listPrice",
+                    "leviedDutyFeeTax",
+                    "netPrice",
+                    "netAmount",
+                    "transactionalTradeItem",
+                    "allowanceCharge"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "ecomDocument",
+            "orderIdentification",
+            "additionalOrderInstruction",
+            "deliveryTerms",
+            "buyer"
+          ]
+        }
+      },
+      "required": [
+        "order"
+      ]
+    }
+  },
+  "required": [
+    "orderMessage"
+  ]
+}
